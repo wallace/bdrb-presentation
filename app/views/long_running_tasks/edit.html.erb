@@ -1,0 +1,16 @@
+<h1>Editing long_running_task</h1>
+
+<% form_for(@long_running_task) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :task %><br />
+    <%= f.text_field :task %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @long_running_task %> |
+<%= link_to 'Back', long_running_tasks_path %>

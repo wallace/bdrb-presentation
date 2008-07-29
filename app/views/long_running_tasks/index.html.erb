@@ -1,0 +1,31 @@
+<h1>Listing long_running_tasks</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+  </tr>
+
+<% for long_running_task in @long_running_tasks %>
+  <tr>
+    <td><%=h long_running_task.task %></td>
+    <td><%= link_to 'Run now serial', :action => :run_task_now_serial, :id => long_running_task %></td>
+    <td><%= link_to 'Run now concurrently', :action => :run_task_now_concurrently, :id => long_running_task %></td>
+    <td><%= link_to 'Show', long_running_task %></td>
+    <td><%= link_to 'Edit', edit_long_running_task_path(long_running_task) %></td>
+  </tr>
+<% end %>
+</table> 
+<br />
+
+<script type="text/javascript">
+  var keep_polling = true;
+</script>
+
+<%= link_to_remote 'Run lengthy task', :url => run_long_task_url %></td>
+<br />
+<div id='progress'>progress for lengthy task here
+</div>
+<br />
+
+
+<%= link_to 'New long_running_task', new_long_running_task_path %>
